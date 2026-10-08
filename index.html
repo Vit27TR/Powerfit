@@ -1,0 +1,1819 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>POWERFIT | Academia</title>
+
+    <style>
+
+        /* =========================
+           CONFIGURAÇÕES GERAIS
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b0812;
+            color: white;
+        }
+
+
+        /* =========================
+           MENU
+        ========================= */
+
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(11, 8, 18, 0.95);
+
+            border-bottom: 1px solid #2b1740;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+
+            height: 75px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 25px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+
+            color: #a855f7;
+
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+
+            display: flex;
+
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #a855f7;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 100px 20px 50px;
+
+            background:
+                linear-gradient(
+                    rgba(5, 3, 10, 0.75),
+                    rgba(5, 3, 10, 0.92)
+                ),
+
+                radial-gradient(
+                    circle at center,
+                    #40156b,
+                    #09070d 65%
+                );
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 90px);
+
+            line-height: 1;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #a855f7;
+        }
+
+        .hero p {
+            color: #cccccc;
+
+            font-size: 20px;
+
+            margin-bottom: 35px;
+        }
+
+
+        /* BOTÃO */
+
+        .button {
+            display: inline-block;
+
+            padding: 15px 30px;
+
+            background: #8b2bd6;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 7px;
+
+            font-weight: bold;
+
+            border: none;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #a855f7;
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 8px 25px rgba(168, 85, 247, 0.25);
+        }
+
+
+        /* =========================
+           SEÇÕES
+        ========================= */
+
+        section {
+            padding: 90px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+
+            margin-bottom: 10px;
+        }
+
+        .section-title span {
+            color: #a855f7;
+        }
+
+        .section-title p {
+            color: #999;
+        }
+
+
+        /* =========================
+           SOBRE
+        ========================= */
+
+        .cards {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .card {
+            background: #15111d;
+
+            border: 1px solid #2b1740;
+
+            padding: 30px;
+
+            border-radius: 10px;
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+
+            border-color: #a855f7;
+
+            box-shadow:
+                0 10px 30px rgba(168, 85, 247, 0.08);
+        }
+
+        .card .icon {
+            font-size: 40px;
+
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+
+            font-size: 22px;
+        }
+
+        .card p {
+            color: #aaa;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           TREINOS
+        ========================= */
+
+        #treinos {
+            background: #100c16;
+        }
+
+        .training-options {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .training-option {
+            background: #17121e;
+
+            border: 1px solid #2b1740;
+
+            border-radius: 10px;
+
+            padding: 30px;
+
+            text-align: center;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .training-option:hover {
+            transform: translateY(-7px);
+
+            border-color: #a855f7;
+
+            background: #1c1525;
+        }
+
+        .training-option .emoji {
+            font-size: 45px;
+
+            margin-bottom: 15px;
+        }
+
+        .training-option h3 {
+            font-size: 23px;
+
+            margin-bottom: 10px;
+        }
+
+        .training-option p {
+            color: #999;
+        }
+
+
+        /* =========================
+           TREINO ESCOLHIDO
+        ========================= */
+
+        #workout {
+            display: none;
+
+            background: #08060c;
+        }
+
+        .workout-box {
+            max-width: 900px;
+
+            margin: auto;
+
+            background: #141019;
+
+            border: 1px solid #2b1740;
+
+            border-radius: 12px;
+
+            padding: 35px;
+        }
+
+        .workout-title {
+            text-align: center;
+
+            margin-bottom: 35px;
+        }
+
+        .workout-title h2 {
+            font-size: 35px;
+
+            color: #a855f7;
+
+            margin-bottom: 10px;
+        }
+
+        .workout-title p {
+            color: #aaa;
+        }
+
+
+        /* =========================
+           EXERCÍCIOS
+        ========================= */
+
+        .exercise {
+            padding: 25px 0;
+
+            border-bottom: 1px solid #2b1740;
+        }
+
+        .exercise:last-child {
+            border-bottom: none;
+        }
+
+        .exercise h3 {
+            font-size: 22px;
+
+            margin-bottom: 12px;
+
+            color: white;
+        }
+
+        .exercise-description {
+            color: #aaa;
+
+            line-height: 1.6;
+
+            margin-bottom: 18px;
+        }
+
+        .exercise-details {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 12px;
+        }
+
+        .detail {
+            background: #1c1624;
+
+            padding: 15px;
+
+            border-radius: 7px;
+
+            border: 1px solid #2b1740;
+        }
+
+        .detail strong {
+            display: block;
+
+            color: #a855f7;
+
+            margin-bottom: 6px;
+        }
+
+        .detail span {
+            color: #ccc;
+
+            font-size: 14px;
+
+            line-height: 1.4;
+        }
+
+
+        /* =========================
+           AVISO
+        ========================= */
+
+        .notice {
+            margin-top: 30px;
+
+            padding: 18px;
+
+            background: #1b1325;
+
+            border-left: 4px solid #a855f7;
+
+            border-radius: 6px;
+
+            color: #aaa;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           FINAL DO TREINO
+        ========================= */
+
+        .finish {
+            text-align: center;
+
+            margin-top: 40px;
+
+            padding: 30px;
+
+            background: #1a1422;
+
+            border-radius: 10px;
+
+            border: 1px solid #39204e;
+        }
+
+        .finish h3 {
+            color: #a855f7;
+
+            font-size: 25px;
+
+            margin-bottom: 10px;
+        }
+
+        .finish p {
+            color: #bbb;
+
+            margin-bottom: 20px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           CONTATO
+        ========================= */
+
+        #contato {
+            background: #100c16;
+        }
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            color: #aaa;
+
+            margin: 10px;
+        }
+
+
+        /* =========================
+           RODAPÉ
+        ========================= */
+
+        footer {
+            text-align: center;
+
+            padding: 30px 20px;
+
+            background: #07050a;
+
+            color: #777;
+        }
+
+        footer span {
+            color: #a855f7;
+        }
+
+
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            nav ul {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            .cards,
+            .training-options {
+                grid-template-columns: 1fr;
+            }
+
+            .exercise-details {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            nav {
+                height: auto;
+
+                padding: 18px;
+
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+            .hero {
+                padding-top: 150px;
+            }
+
+            .workout-box {
+                padding: 20px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         MENU
+    ========================= -->
+
+    <header>
+
+        <nav>
+
+            <div class="logo">
+                POWER<span>FIT</span>
+            </div>
+
+            <ul>
+
+                <li>
+                    <a href="#inicio">
+                        Início
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#sobre">
+                        Sobre
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#treinos">
+                        Treinos
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contato">
+                        Contato
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================
+         INÍCIO
+    ========================= -->
+
+    <section class="hero" id="inicio">
+
+        <div class="hero-content">
+
+            <h1>
+
+                SUPERE SEUS
+                <br>
+
+                <span>LIMITES.</span>
+
+            </h1>
+
+            <p>
+
+                Treine. Evolua. Conquiste.
+                <br>
+
+                Sua melhor versão começa aqui.
+
+            </p>
+
+            <a
+                href="#treinos"
+                class="button"
+            >
+
+                ESCOLHER MEU TREINO
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SOBRE
+    ========================= -->
+
+    <section id="sobre">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>
+
+                    POR QUE
+                    <span>POWERFIT?</span>
+
+                </h2>
+
+                <p>
+
+                    Mais do que uma academia.
+                    Um lugar para aprender e evoluir.
+
+                </p>
+
+            </div>
+
+
+            <div class="cards">
+
+
+                <div class="card">
+
+                    <div class="icon">
+                        🏋️
+                    </div>
+
+                    <h3>
+                        Estrutura completa
+                    </h3>
+
+                    <p>
+
+                        Equipamentos e espaços preparados
+                        para diferentes tipos de treinamento.
+
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="icon">
+                        📚
+                    </div>
+
+                    <h3>
+                        Aprenda a treinar
+                    </h3>
+
+                    <p>
+
+                        Conheça os exercícios, sua execução
+                        e os principais músculos trabalhados.
+
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="icon">
+                        💪
+                    </div>
+
+                    <h3>
+                        Evolução
+                    </h3>
+
+                    <p>
+
+                        Crie uma rotina ativa e desenvolva
+                        hábitos importantes para sua saúde.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ESCOLHA DO TREINO
+    ========================= -->
+
+    <section id="treinos">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>
+
+                    ESCOLHA SEU
+                    <span>TREINO DE HOJE</span>
+
+                </h2>
+
+                <p>
+
+                    Escolha um grupo muscular
+                    para conhecer um treino educativo.
+
+                </p>
+
+            </div>
+
+
+            <div class="training-options">
+
+
+                <div
+                    class="training-option"
+                    onclick="mostrarTreino('peito')"
+                >
+
+                    <div class="emoji">
+                        🏋️
+                    </div>
+
+                    <h3>
+                        Peito
+                    </h3>
+
+                    <p>
+                        Peitoral e músculos auxiliares
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="training-option"
+                    onclick="mostrarTreino('costas')"
+                >
+
+                    <div class="emoji">
+                        🦍
+                    </div>
+
+                    <h3>
+                        Costas
+                    </h3>
+
+                    <p>
+                        Costas e músculos auxiliares
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="training-option"
+                    onclick="mostrarTreino('pernas')"
+                >
+
+                    <div class="emoji">
+                        🦵
+                    </div>
+
+                    <h3>
+                        Pernas
+                    </h3>
+
+                    <p>
+                        Pernas e glúteos
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="training-option"
+                    onclick="mostrarTreino('ombros')"
+                >
+
+                    <div class="emoji">
+                        💪
+                    </div>
+
+                    <h3>
+                        Ombros
+                    </h3>
+
+                    <p>
+                        Ombros e estabilizadores
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="training-option"
+                    onclick="mostrarTreino('bracos')"
+                >
+
+                    <div class="emoji">
+                        💪
+                    </div>
+
+                    <h3>
+                        Braços
+                    </h3>
+
+                    <p>
+                        Bíceps e tríceps
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="training-option"
+                    onclick="mostrarTreino('fullbody')"
+                >
+
+                    <div class="emoji">
+                        🔥
+                    </div>
+
+                    <h3>
+                        Full Body
+                    </h3>
+
+                    <p>
+                        Corpo inteiro
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         TREINO SELECIONADO
+    ========================= -->
+
+    <section id="workout">
+
+        <div class="workout-box">
+
+            <div class="workout-title">
+
+                <h2 id="tituloTreino">
+                    Seu treino
+                </h2>
+
+                <p id="descricaoTreino">
+                    Treino educativo
+                </p>
+
+            </div>
+
+
+            <div id="listaExercicios">
+            </div>
+
+
+            <div class="notice">
+
+                ⚠️ <strong>Importante:</strong>
+
+                Os exercícios apresentados são exemplos
+                educativos para este projeto escolar.
+                A carga, quantidade e execução devem ser
+                adaptadas ao nível de cada pessoa e,
+                quando necessário, acompanhadas por um
+                profissional de Educação Física.
+
+            </div>
+
+
+            <div class="finish">
+
+                <h3>
+                    🎯 Sessão finalizada!
+                </h3>
+
+                <p>
+
+                    Isso é tudo por hoje.
+                    <br>
+
+                    Descanse, hidrate-se e
+                    <br>
+
+                    até amanhã! 💜
+
+                </p>
+
+                <button
+                    class="button"
+                    onclick="voltarTreinos()"
+                >
+
+                    ESCOLHER OUTRO TREINO
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONTATO
+    ========================= -->
+
+    <section id="contato">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>
+
+                    ENTRE EM
+                    <span>CONTATO</span>
+
+                </h2>
+
+                <p>
+                    Estamos prontos para ajudar você.
+                </p>
+
+            </div>
+
+
+            <div class="contact">
+
+                <p>
+                    📍 Rua da Saúde, 100 — São Paulo, SP
+                </p>
+
+                <p>
+                    📞 (11) 99999-9999
+                </p>
+
+                <p>
+                    📧 contato@powerfit.com
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         RODAPÉ
+    ========================= -->
+
+    <footer>
+
+        <p>
+
+            © 2026
+            <span>POWERFIT</span>
+            — Academia
+
+        </p>
+
+        <p>
+
+            Projeto escolar de Educação Física
+
+        </p>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+
+        const treinos = {
+
+
+            /* =====================
+               PEITO
+            ===================== */
+
+            peito: {
+
+                titulo: "Treino de Peito",
+
+                descricao:
+                    "Exemplo educativo para conhecer exercícios que trabalham principalmente o peitoral.",
+
+                exercicios: [
+
+                    {
+                        nome: "Supino reto",
+
+                        comoFazer:
+                            "Deite-se no banco, mantenha os pés apoiados e empurre a barra para cima de forma controlada. Desça lentamente até uma posição confortável e repita.",
+
+                        serve:
+                            "Trabalha principalmente o peitoral, com participação dos tríceps e ombros.",
+
+                        series:
+                            "3 séries",
+
+                        repeticoes:
+                            "8–12 repetições",
+
+                        descanso:
+                            "60–90 segundos"
+                    },
+
+
+                    {
+                        nome: "Supino inclinado",
+
+                        comoFazer:
+                            "Deite-se em um banco inclinado e empurre os pesos para cima, mantendo os movimentos controlados.",
+
+                        serve:
+                            "Dá maior ênfase à parte superior do peitoral, além de envolver ombros e tríceps.",
+
+                        series:
+                            "3 séries",
+
+                        repeticoes:
+                            "8–12 repetições",
+
+                        descanso:
+                            "60–90 segundos"
+                    },
+
+
+                    {
+                        nome: "Crucifixo",
+
+                        comoFazer:
+                            "Com os braços levemente flexionados, abra os braços de maneira controlada e depois aproxime-os novamente.",
+
+                        serve:
+                            "Trabalha principalmente o peitoral e ajuda a desenvolver o controle do movimento.",
+
+                        series:
+                            "3 séries",
+
+                        repeticoes:
+                            "10–15 repetições",
+
+                        descanso:
+                            "60 segundos"
+                    },
+
+
+                    {
+                        nome: "Flexão de braços",
+
+                        comoFazer:
+                            "Apoie as mãos no chão, mantenha o corpo alinhado e flexione os braços, aproximando o peito do chão antes de retornar.",
+
+                        serve:
+                            "Trabalha peitoral, tríceps e músculos responsáveis pela estabilização do corpo.",
+
+                        series:
+                            "3 séries",
+
+                        repeticoes:
+                            "8–15 repetições",
+
+                        descanso:
+                            "60 segundos"
+                    }
+
+                ]
+
+            },
+
+
+            /* =====================
+               COSTAS
+            ===================== */
+
+            costas: {
+
+                titulo: "Treino de Costas",
+
+                descricao:
+                    "Exemplo educativo para conhecer exercícios que trabalham a musculatura das costas.",
+
+                exercicios: [
+
+                    {
+                        nome: "Puxada frontal",
+
+                        comoFazer:
+                            "Sente-se na máquina, segure a barra e puxe-a em direção à parte superior do peito, retornando lentamente.",
+
+                        serve:
+                            "Trabalha principalmente o latíssimo do dorso e auxilia no desenvolvimento da força de puxada.",
+
+                        series:
+                            "3 séries",
+
+                        repeticoes:
+                            "8–12 repetições",
+
+                        descanso:
+                            "60–90 segundos"
+                    },
+
+
+                    {
+                        nome: "Remada baixa",
+
+                        comoFazer:
+                            "Sente-se na máquina, mantenha o tronco estável e puxe o cabo em direção ao corpo, retornando de maneira controlada.",
+
+                        serve:
+                            "Trabalha músculos das costas, especialmente a região média.",
+
+                        series:
+                            "3 séries",
+
+                        repeticoes:
+                            "8–12 repetições",
+
+                        descanso:
+                            "60–90 segundos"
+                    },
+
+
+                    {
+                        nome: "Remada unilateral",
+
+                        comoFazer:
+                            "Apoie-se de maneira estável e puxe o peso em direção ao tronco, mantendo o movimento controlado.",
+
+                        serve:
+                            "Ajuda a trabalhar cada lado das costas individualmente.",
+
+                        series:
+                            "3 séries",
+
+                        repeticoes:
+                            "10–12 repetições",
+
+                        descanso:
+                            "60 segundos"
+                    },
+
+
+                    {
+                        nome: "Pulldown",
+
+                        comoFazer:
+                            "Segure o equipamento e realize uma puxada controlada, mantendo o tronco estável durante o movimento.",
+
+                        serve:
+                            "Trabalha principalmente os músculos responsáveis pelos movimentos de puxada.",
+
+                        series:
+                            "3 séries",
+
+                        repeticoes:
+                            "10–15 repetições",
+
+                        descanso:
+                            "60 segundos"
+                    }
+
+                ]
+
+            },
+
+
+            /* =====================
+               PERNAS
+            ===================== */
+
+            pernas: {
+
+                titulo: "Treino de Pernas",
+
+                descricao:
+                    "Exemplo educativo envolvendo diferentes músculos das pernas.",
+
+                exercicios: [
+
+                    {
+                        nome: "Agachamento",
+
+                        comoFazer:
+                            "Mantenha os pés em uma posição confortável, flexione quadril e joelhos de maneira controlada e depois retorne à posição inicial.",
+
+                        serve:
+                            "Trabalha principalmente quadríceps e glúteos, além de envolver outros músculos na estabilização.",
+
+                        series:
+                            "3 séries",
+
+                        repeticoes:
+                            "8–12 repetições",
+
+                        descanso:
+                            "90 segundos"
+                    },
+
+
+                    {
+                        nome: "Leg Press",
+
+                        comoFazer:
+                            "Sente-se corretamente no equipamento, posicione os pés na plataforma e empurre-a de forma controlada, sem realizar movimentos bruscos.",
+
+                        serve:
+                            "Trabalha principalmente os músculos das pernas.",
+
+                        series:
+                            "3 séries",
+
+                        repeticoes:
+                            "10–12 repetições",
+
+                        descanso:
+                            "90 segundos"
+                    },
+
+
+                    {
+                        nome: "Cadeira extensora",
+
+                        comoFazer:
+                            "Sente-se no equipamento e estenda os joelhos de maneira controlada antes de retornar à posição inicial.",
+
+                        serve:
+                            "Dá ênfase aos músculos da parte frontal da coxa.",
+
+                        series:
+                            "3 séries",
+
+                        repeticoes:
+                            "10–15 repetições",
+
+                        descanso:
+                            "60 segundos"
+                    },
+
+
+                    {
+                        nome: "Mesa flexora",
+
+                        comoFazer:
+                            "Posicione-se corretamente no equipamento e flexione os joelhos de maneira controlada.",
+
+                        serve:
+                            "Trabalha principalmente a parte posterior das coxas.",
+
+                        series:
+                            "3 séries",
+
+                        repeticoes:
+                            "10–15 repetições",
+
+                        descanso:
+                            "60 segundos"
+                    }
+
+                ]
+
+            },
+
+
+            /* =====================
+               OMBROS
+            ===================== */
+
+            ombros: {
+
+                titulo: "Treino de Ombros",
+
+                descricao:
+                    "Exemplo educativo para conhecer exercícios que trabalham os ombros.",
+
+                exercicios: [
+
+                    {
+                        nome: "Desenvolvimento",
+
+                        comoFazer:
+                            "Posicione os pesos próximos aos ombros e empurre-os para cima de maneira controlada, retornando lentamente.",
+
+                        serve:
+                            "Trabalha principalmente os músculos dos ombros.",
+
+                        series:
+                            "3 séries",
+
+                        repeticoes:
+                            "8–12 repetições",
+
+                        descanso:
+                            "60–90 segundos"
+                    },
+
+
+                    {
+                        nome: "Elevação lateral",
+
+                        comoFazer:
+                            "Com os braços ao lado do corpo, eleve os pesos lateralmente de maneira controlada e depois retorne.",
+
+                        serve:
+                            "Dá ênfase à parte lateral dos ombros.",
+
+                        series:
+                            "3 séries",
+
+                        repeticoes:
+                            "10–15 repetições",
+
+                        descanso:
+                            "60 segundos"
+                    },
+
+
+                    {
+                        nome: "Elevação frontal",
+
+                        comoFazer:
+                            "Eleve os braços para frente de maneira controlada até uma posição confortável e depois retorne.",
+
+                        serve:
+                            "Trabalha principalmente a parte frontal dos ombros.",
+
+                        series:
+                            "3 séries",
+
+                        repeticoes:
+                            "10–15 repetições",
+
+                        descanso:
+                            "60 segundos"
+                    },
+
+
+                    {
+                        nome: "Crucifixo inverso",
+
+                        comoFazer:
+                            "Incline o tronco de maneira confortável e abra os braços lateralmente, mantendo o movimento controlado.",
+
+                        serve:
+                            "Trabalha principalmente a parte posterior dos ombros.",
+
+                        series:
+                            "3 séries",
+
+                        repeticoes:
+                            "10–15 repetições",
+
+                        descanso:
+                            "60 segundos"
+                    }
+
+                ]
+
+            },
+
+
+            /* =====================
+               BRAÇOS
+            ===================== */
+
+            bracos: {
+
+                titulo: "Treino de Braços",
+
+                descricao:
+                    "Exemplo educativo para bíceps e tríceps.",
+
+                exercicios: [
+
+                    {
+                        nome: "Rosca direta",
+
+                        comoFazer:
+                            "Mantenha os cotovelos próximos ao corpo e flexione os braços, levando o peso para cima e retornando lentamente.",
+
+                        serve:
+                            "Trabalha principalmente os músculos do bíceps.",
+
+                        series:
+                            "3 séries",
+
+                        repeticoes:
+                            "8–12 repetições",
+
+                        descanso:
+                            "60 segundos"
+                    },
+
+
+                    {
+                        nome: "Rosca alternada",
+
+                        comoFazer:
+                            "Flexione um braço de cada vez, mantendo o cotovelo estável e controlando tanto a subida quanto a descida.",
+
+                        serve:
+                            "Trabalha os bíceps individualmente.",
+
+                        series:
+                            "3 séries",
+
+                        repeticoes:
+                            "10–12 repetições",
+
+                        descanso:
+                            "60 segundos"
+                    },
+
+
+                    {
+                        nome: "Tríceps pulley",
+
+                        comoFazer:
+                            "Segure o equipamento e estenda os braços para baixo mantendo os cotovelos próximos ao corpo.",
+
+                        serve:
+                            "Trabalha principalmente os músculos do tríceps.",
+
+                        series:
+                            "3 séries",
+
+                        repeticoes:
+                            "10–15 repetições",
+
+                        descanso:
+                            "60 segundos"
+                    },
+
+
+                    {
+                        nome: "Tríceps francês",
+
+                        comoFazer:
+                            "Mantenha o peso acima da cabeça e flexione os cotovelos, retornando depois de forma controlada.",
+
+                        serve:
+                            "Trabalha principalmente o tríceps.",
+
+                        series:
+                            "3 séries",
+
+                        repeticoes:
+                            "10–12 repetições",
+
+                        descanso:
+                            "60 segundos"
+                    }
+
+                ]
+
+            },
+
+
+            /* =====================
+               FULL BODY
+            ===================== */
+
+            fullbody: {
+
+                titulo: "Treino Full Body",
+
+                descricao:
+                    "Exemplo educativo envolvendo diferentes grupos musculares.",
+
+                exercicios: [
+
+                    {
+                        nome: "Agachamento",
+
+                        comoFazer:
+                            "Flexione quadril e joelhos de maneira controlada e retorne à posição inicial mantendo o corpo estável.",
+
+                        serve:
+                            "Trabalha principalmente pernas e glúteos.",
+
+                        series:
+                            "3 séries",
+
+                        repeticoes:
+                            "8–12 repetições",
+
+                        descanso:
+                            "90 segundos"
+                    },
+
+
+                    {
+                        nome: "Supino reto",
+
+                        comoFazer:
+                            "Deitado no banco, empurre o peso para cima e retorne de maneira controlada.",
+
+                        serve:
+                            "Trabalha principalmente o peitoral.",
+
+                        series:
+                            "3 séries",
+
+                        repeticoes:
+                            "8–12 repetições",
+
+                        descanso:
+                            "90 segundos"
+                    },
+
+
+                    {
+                        nome: "Puxada frontal",
+
+                        comoFazer:
+                            "Puxe a barra em direção ao peito de maneira controlada e retorne lentamente.",
+
+                        serve:
+                            "Trabalha principalmente os músculos das costas.",
+
+                        series:
+                            "3 séries",
+
+                        repeticoes:
+                            "8–12 repetições",
+
+                        descanso:
+                            "60–90 segundos"
+                    },
+
+
+                    {
+                        nome: "Elevação lateral",
+
+                        comoFazer:
+                            "Eleve os braços lateralmente de maneira controlada e depois retorne à posição inicial.",
+
+                        serve:
+                            "Trabalha principalmente a região lateral dos ombros.",
+
+                        series:
+                            "3 séries",
+
+                        repeticoes:
+                            "10–15 repetições",
+
+                        descanso:
+                            "60 segundos"
+                    }
+
+                ]
+
+            }
+
+        };
+
+
+
+        /* =========================
+           MOSTRAR TREINO
+        ========================= */
+
+        function mostrarTreino(tipo) {
+
+            const treino = treinos[tipo];
+
+            const secaoWorkout =
+                document.getElementById("workout");
+
+            const titulo =
+                document.getElementById("tituloTreino");
+
+            const descricao =
+                document.getElementById("descricaoTreino");
+
+            const lista =
+                document.getElementById("listaExercicios");
+
+
+            titulo.textContent =
+                treino.titulo;
+
+
+            descricao.textContent =
+                treino.descricao;
+
+
+            lista.innerHTML = "";
+
+
+            treino.exercicios.forEach(
+
+                function(exercicio) {
+
+                    lista.innerHTML += `
+
+                        <div class="exercise">
+
+                            <h3>
+                                ${exercicio.nome}
+                            </h3>
+
+                            <p class="exercise-description">
+
+                                <strong>Como fazer:</strong>
+                                ${exercicio.comoFazer}
+
+                                <br><br>
+
+                                <strong>Para que serve:</strong>
+                                ${exercicio.serve}
+
+                            </p>
+
+
+                            <div class="exercise-details">
+
+
+                                <div class="detail">
+
+                                    <strong>
+                                        🔢 Séries
+                                    </strong>
+
+                                    <span>
+                                        ${exercicio.series}
+                                    </span>
+
+                                </div>
+
+
+                                <div class="detail">
+
+                                    <strong>
+                                        🔁 Repetições
+                                    </strong>
+
+                                    <span>
+                                        ${exercicio.repeticoes}
+                                    </span>
+
+                                </div>
+
+
+                                <div class="detail">
+
+                                    <strong>
+                                        ⏱️ Descanso
+                                    </strong>
+
+                                    <span>
+                                        ${exercicio.descanso}
+                                    </span>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+                }
+
+            );
+
+
+            secaoWorkout.style.display =
+                "block";
+
+
+            secaoWorkout.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+
+
+        /* =========================
+           VOLTAR
+        ========================= */
+
+        function voltarTreinos() {
+
+            document
+                .getElementById("workout")
+                .style.display = "none";
+
+
+            document
+                .getElementById("treinos")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+```
